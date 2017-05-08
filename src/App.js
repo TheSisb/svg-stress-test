@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
 
-const COUNT = 100;
+const COUNT = 1000;
 
 class CloseSvg extends React.PureComponent {
   static defaultProps = {
@@ -9,7 +9,7 @@ class CloseSvg extends React.PureComponent {
     fill: '#000',
     width: 12,
     height: 12
-  }
+  };
 
   render() {
     const {bg, fill, width, height} = this.props;
@@ -17,8 +17,11 @@ class CloseSvg extends React.PureComponent {
     return (
       <svg xmlns="http://www.w3.org/2000/svg" style={{width, height}} viewBox="0 0 12 12">
         <g fill={bg} fillRule="evenodd">
-          <path d="M0 0h12v12H0"/>
-          <path fill={fill} d="M9.5 3.205L8.795 2.5 6 5.295 3.205 2.5l-.705.705L5.295 6 2.5 8.795l.705.705L6 6.705 8.795 9.5l.705-.705L6.705 6"/>
+          <path d="M0 0h12v12H0" />
+          <path
+            fill={fill}
+            d="M9.5 3.205L8.795 2.5 6 5.295 3.205 2.5l-.705.705L5.295 6 2.5 8.795l.705.705L6 6.705 8.795 9.5l.705-.705L6.705 6"
+          />
         </g>
       </svg>
     );
@@ -27,20 +30,20 @@ class CloseSvg extends React.PureComponent {
 
 class CloseImg extends React.PureComponent {
   render() {
-    return (
-      <img alt="test" src="/test.svg" width="12" height="12" />
-    );
+    return <img alt="test" src="/test.svg" width="12" height="12" />;
   }
 }
-
 
 class CloseSvgSimple extends React.PureComponent {
   render() {
     return (
       <svg className="ui-icon ui-icon-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12">
         <g className="background" fillRule="evenodd">
-          <path d="M0 0h12v12H0"/>
-          <path className="fill" d="M9.5 3.205L8.795 2.5 6 5.295 3.205 2.5l-.705.705L5.295 6 2.5 8.795l.705.705L6 6.705 8.795 9.5l.705-.705L6.705 6"/>
+          <path d="M0 0h12v12H0" />
+          <path
+            className="fill"
+            d="M9.5 3.205L8.795 2.5 6 5.295 3.205 2.5l-.705.705L5.295 6 2.5 8.795l.705.705L6 6.705 8.795 9.5l.705-.705L6.705 6"
+          />
         </g>
       </svg>
     );
@@ -108,6 +111,7 @@ class Toggler extends Component {
   render() {
     return (
       <div>
+        <h2>{this.props.title}</h2>
         <button onClick={this.handleClick.bind(this)}>Toggle Me!</button>
         {this.state.shown ? this.props.children : null}
       </div>
@@ -123,9 +127,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Toggler><SVGTest /></Toggler>
-        <Toggler><IMGTest /></Toggler>
-        <Toggler><SVGSimpleTest /></Toggler>
+        <Toggler title="SVG With Props"><SVGTest /></Toggler>
+        <Toggler title="SVG as Image tag"><IMGTest /></Toggler>
+        <Toggler title="SVG without props, classNames"><SVGSimpleTest /></Toggler>
       </div>
     );
   }
